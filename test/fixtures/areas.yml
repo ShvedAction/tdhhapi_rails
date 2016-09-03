@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: one
+
+root_area:
+  name: root_parent
+
+first_level_1:
+  name: first_level_1
+  area: root_area
+
+first_level_2:
+  name: first_level_2
+  area: root_area
+
+first_level_3:
+  name: first_level_3
+  area: root_area
+
+second_level_1_1:
+  name: second_level_1_1
+  area: first_level_1
+
+second_level_1_2:
+  name: second_level_1_2
+  area: first_level_1
+
+second_level_2_1:
+  name: second_level_2_1
+  area: first_level_2
+
+second_level_2_2:
+  name: second_level_2_2
+  area: first_level_2
