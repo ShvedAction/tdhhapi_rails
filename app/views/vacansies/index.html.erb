@@ -1,17 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Vacansies</h1>
 
-<table>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Фильтр по городам <%= link_to 'Импортировать вакансию', new_vacansy_path, class: "btn btn-xs btn-primary", style: "float:right;" %></div>
+  <div class="panel-body">
+    <%= form_tag(:vacansies, method: :get) do  %>
+      <%= select_tag "area_id", options_from_collection_for_select(Area.all, :id, :name, params[:area_id]),multiple: true  %>
+        <br/><br/>
+      <%= submit_tag "Применить", class: "btn btn btn-success" %>
+    <% end %>
+  </div>
+
+  <!-- Table -->
+<table class="table">
   <thead>
     <tr>
-      <th>Area</th>
-      <th>Branded description</th>
-      <th>Alternate url</th>
-      <th>Name</th>
-      <th>Archived</th>
-      <th>Type name</th>
-      <th>Published at</th>
+      <th>Город</th>
+      <th>Название</th>
+      <th>Опубликованна</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,12 +27,8 @@
     <% @vacansies.each do |vacansy| %>
       <tr>
         <td><%= vacansy.area.name %></td>
-        <td><%= vacansy.description.html_safe %></td>
-        <td><%= vacansy.alternate_url %></td>
-        <td><%= vacansy.name %></td>
-        <td><%= vacansy.archived %></td>
-        <td><%= vacansy.type_name %></td>
-        <td><%= vacansy.published_at %></td>
+        <td><%= link_to vacansy.name, vacansy.alternate_url %></td>
+        <td><%= vacansy.published_at.localtime.strftime("%d.%m.%Y")  %></td>
         <td><%= link_to 'Show', vacansy %></td>
         <td><%= link_to 'Edit', edit_vacansy_path(vacansy) %></td>
         <td><%= link_to 'Destroy', vacansy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,7 +36,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Vacansy', new_vacansy_path %>
+
