@@ -26,7 +26,7 @@ class VacansiesController < ApplicationController
   # POST /vacansies
   # POST /vacansies.json
   def create
-    @vacansy = Vacansy.new(vacansy_params)
+    @vacansy = Vacansy.import(params[:vacansy][:id])
 
     respond_to do |format|
       if @vacansy.save
