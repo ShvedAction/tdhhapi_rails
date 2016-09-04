@@ -1,0 +1,19 @@
+# Тестовое задание
+
+Данный проект демонстрирует выполнение тестового задания на Ruby On Rails
+
+## Задача:
+
+Получить список вакансий с сайта http://hh.ru/ сохранив их в базу. Организовать поиск вакансий по городам на основе своей базы данных.
+
+## Технические требования:
+
+Парсинг должен быть организован циклически и вести учет новых и старых вакансий. Для тестового задания достаточно 50000 вакансий.
+
+## Описание решения:
+
+Созданы две модели [Area](https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/area.rb) и [Vacansy](https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/vacancy.rb) ([Миграции](https://github.com/ShvedAction/tdhhapi_rails/tree/master/db/migrate)). Создан фасад для взаимодействия с HH API [HHAPIFacad](https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/hhapi_facad.rb). Для потенциального подмена моком в возможных юнит тестах.
+
+Массовый импорт осуществляется запуском [rake db:seed](https://github.com/ShvedAction/tdhhapi_rails/blob/master/db/seeds.rb). Импортируются Российские города, и из каждого города импортируется не более 4 страниц вакансий.
+
+Через интерфейс можно импортировать по одной вакансии указав её id.

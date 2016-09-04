@@ -18,11 +18,16 @@
 </div>
 
 <h2>Описание решения:</h2>
-<p>Созданы две модели <a href="#">Area</a> и <a href="#">Vacansy</a>(<a href="#">Миграции</a>).
-  Создан фасад для взаимодействия с HH API <a href="#">HHAPIFacad</a>.
+<p>Созданы две модели
+  <a target="_blank" href="https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/area.rb">Area</a>
+  и <a target="_blank" href="https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/vacancy.rb">Vacansy</a>
+  (<a target="_blank" href="https://github.com/ShvedAction/tdhhapi_rails/tree/master/db/migrate">Миграции</a>).
+  Создан фасад для взаимодействия с HH API
+  <a target="_blank" href="https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/hhapi_facad.rb">HHAPIFacad</a>.
   Для потенциального подмена моком в возможных юнит тестах.</p>
 <p>
-  Массовый импорт осуществляется запуском rake db:seed.
+  Массовый импорт осуществляется запуском
+  <a target="_blank" href="https://github.com/ShvedAction/tdhhapi_rails/blob/master/db/seeds.rb">rake db:seed</a>.
   Импортируются Российские города, и из каждого города импортируется не более 4 страниц вакансий.
 </p>
 <p>

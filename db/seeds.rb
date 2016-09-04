@@ -17,5 +17,5 @@ ActiveRecord::Base.transaction do
   # импорт вакансий
   # для каждого города 4 страници это не больше 80 вакансий
   # городов примерно 1900
-  Area.all.limit(100).offset(600).each {|area| area.import_all_vacancies page_limit: 3}
+  Area.all.limit(3).each {|area| area.import_all_vacancies page_limit: 3}
 end
