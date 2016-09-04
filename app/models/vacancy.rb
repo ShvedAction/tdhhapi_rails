@@ -1,8 +1,8 @@
-class Vacansy < ActiveRecord::Base
+class Vacancy < ActiveRecord::Base
   belongs_to :area
 
   def self.import id
-    Vacansy.create HHAPIFacad.get_vacansy(id)
+    Vacancy.create HHAPIFacad.get_vacancy(id) unless Vacancy.exists? id: id
   end
 
   @@permit_build_key = ["description", "alternate_url", "name", "id", "archived", "area_id", "published_at", "type_name"]

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160903202605) do
 
   add_index "areas", ["parent_id"], name: "index_areas_on_parent_id"
 
-  create_table "vacansies", force: :cascade do |t|
+  create_table "vacancies", force: :cascade do |t|
     t.integer  "area_id"
     t.text     "description"
     t.string   "alternate_url"
@@ -34,6 +34,6 @@ ActiveRecord::Schema.define(version: 20160903202605) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "vacansies", ["area_id"], name: "index_vacansies_on_area_id"
+  add_index "vacancies", ["area_id"], name: "index_vacancies_on_area_id"
 
 end

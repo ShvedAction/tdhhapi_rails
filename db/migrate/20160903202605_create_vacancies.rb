@@ -1,6 +1,6 @@
-class CreateVacansies < ActiveRecord::Migration
+class CreateVacancies < ActiveRecord::Migration
   def change
-    create_table :vacansies do |t|
+    create_table :vacancies do |t|
       t.references :area, index: true, foreign_key: true
       t.text :description
       t.string :alternate_url

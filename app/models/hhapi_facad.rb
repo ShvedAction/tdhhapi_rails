@@ -7,11 +7,11 @@ class HHAPIFacad
     get_object id, :areas
   end
 
-  def self.get_vacansy id
+  def self.get_vacancy id
     get_object id, :vacancies
   end
 
-  def self.get_vacansy_by_area area_id, page: false
+  def self.get_vacancy_by_area area_id, page: false
     path = "/vacancies?area=#{area_id}"
     path = path + "&page=#{page}" if page
     p path

@@ -12,10 +12,10 @@
 ActiveRecord::Base.transaction do
 
   # импорт Российских городов
-  Area.import 113 unless Area.find 113
+  Area.import 113 unless Area.find_by id: 113
 
   # импорт вакансий
   # для каждого города 4 страници это не больше 80 вакансий
   # городов примерно 1900
-  Area.all.each {|area| area.import_all_vacansies page_limit: 3}
+  Area.all.limit(100).each {|area| area.import_all_vacancies page_limit: 3}
 end

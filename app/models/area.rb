@@ -19,17 +19,17 @@ class Area < ActiveRecord::Base
     end
   end
 
-  def import_all_vacansies page_limit: false
-    first_page = HHAPIFacad.get_vacansy_by_area id
-    first_page["items"].each  {|item| Vacansy.import item["id"]}
+  def import_all_vacancies page_limit: false
+    first_page = HHAPIFacad.get_vacancy_by_area id
+    first_page["items"].each  {|item| Vacancy.import item["id"]}
     count_pages = first_page["pages"]
     p count_pages
     if count_pages > 1
       up_limit_page = count_pages-1
       up_limit_page = page_limit if page_limit && up_limit_page > page_limit
       (1..up_limit_page).each do |count|
-        page = HHAPIFacad.get_vacansy_by_area id, page: count
-        page["items"].each  {|item| Vacansy.import item["id"]}
+        page = HHAPIFacad.get_vacancy_by_area id, page: count
+        page["items"].each  {|item| Vacancy.import item["id"]}
       end
     end
   end
