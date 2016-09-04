@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+#Импорт вакансий и городв из HH
+
+ActiveRecord::Base.transaction do
+
+  # импорт Российских городов
+  Area.import 113 unless Area.find 113
+
+  # импорт вакансий
+  # для каждого города 4 страници это не больше 80 вакансий
+  # городов примерно 1900
+  Area.all.each {|area| area.import_all_vacansies page_limit: 3}
+end

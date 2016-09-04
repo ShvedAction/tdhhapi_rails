@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @vacansy.area %>
+</p>
+
+<p>
+  <strong>Branded description:</strong>
+  <%= @vacansy.branded_description %>
+</p>
+
+<p>
+  <strong>Alternate url:</strong>
+  <%= @vacansy.alternate_url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vacansy.name %>
+</p>
+
+<p>
+  <strong>Archived:</strong>
+  <%= @vacansy.archived %>
+</p>
+
+<p>
+  <strong>Type name:</strong>
+  <%= @vacansy.type_name %>
+</p>
+
+<p>
+  <strong>Published at:</strong>
+  <%= @vacansy.published_at %>
+</p>
+
+<%= link_to 'Edit', edit_vacansy_path(@vacansy) %> |
+<%= link_to 'Back', vacansies_path %>

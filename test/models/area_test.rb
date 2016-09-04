@@ -17,6 +17,5 @@ class AreaTest < ActiveSupport::TestCase
     area = Area.find 1151
     assert_equal "Дивногорск", area.name
     assert_equal 1146, area.parent_id
-
   end
 end

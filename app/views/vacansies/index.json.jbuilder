@@ -1,0 +1,1 @@
+json.array! @vacansies, partial: 'vacansies/vacansy', as: :vacansy

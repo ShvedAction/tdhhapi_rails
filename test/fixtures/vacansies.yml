@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area_id: 
+  description: MyText
+  alternate_url: MyString
+  name: MyString
+  archived: false
+  type_name: MyString
+  published_at: 2016-09-03 23:26:05
+
+two:
+  area_id: 
+  description: MyText
+  alternate_url: MyString
+  name: MyString
+  archived: false
+  type_name: MyString
+  published_at: 2016-09-03 23:26:05

@@ -1,0 +1,45 @@
+<%= form_for(@vacansy) do |f| %>
+  <% if @vacansy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vacansy.errors.count, "error") %> prohibited this vacansy from being saved:</h2>
+
+      <ul>
+      <% @vacansy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :area_id %><br>
+    <%= f.text_field :area_id %>
+  </div>
+  <div class="field">
+    <%= f.label :branded_description %><br>
+    <%= f.text_area :branded_description %>
+  </div>
+  <div class="field">
+    <%= f.label :alternate_url %><br>
+    <%= f.text_field :alternate_url %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :archived %><br>
+    <%= f.check_box :archived %>
+  </div>
+  <div class="field">
+    <%= f.label :type_name %><br>
+    <%= f.text_field :type_name %>
+  </div>
+  <div class="field">
+    <%= f.label :published_at %><br>
+    <%= f.datetime_select :published_at %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

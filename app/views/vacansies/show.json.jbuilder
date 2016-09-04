@@ -1,0 +1,1 @@
+json.partial! "vacansies/vacansy", vacansy: @vacansy

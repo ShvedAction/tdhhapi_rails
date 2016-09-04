@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903123208) do
+ActiveRecord::Schema.define(version: 20160903202605) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -21,5 +21,19 @@ ActiveRecord::Schema.define(version: 20160903123208) do
   end
 
   add_index "areas", ["parent_id"], name: "index_areas_on_parent_id"
+
+  create_table "vacansies", force: :cascade do |t|
+    t.integer  "area_id"
+    t.text     "description"
+    t.string   "alternate_url"
+    t.string   "name"
+    t.boolean  "archived"
+    t.string   "type_name"
+    t.datetime "published_at"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "vacansies", ["area_id"], name: "index_vacansies_on_area_id"
 
 end

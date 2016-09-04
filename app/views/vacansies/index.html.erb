@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vacansies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Area</th>
+      <th>Branded description</th>
+      <th>Alternate url</th>
+      <th>Name</th>
+      <th>Archived</th>
+      <th>Type name</th>
+      <th>Published at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vacansies.each do |vacansy| %>
+      <tr>
+        <td><%= vacansy.area %></td>
+        <td><%= vacansy.branded_description %></td>
+        <td><%= vacansy.alternate_url %></td>
+        <td><%= vacansy.name %></td>
+        <td><%= vacansy.archived %></td>
+        <td><%= vacansy.type_name %></td>
+        <td><%= vacansy.published_at %></td>
+        <td><%= link_to 'Show', vacansy %></td>
+        <td><%= link_to 'Edit', edit_vacansy_path(vacansy) %></td>
+        <td><%= link_to 'Destroy', vacansy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vacansy', new_vacansy_path %>
