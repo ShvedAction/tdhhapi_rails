@@ -19,8 +19,8 @@
   <tbody>
     <% @vacansies.each do |vacansy| %>
       <tr>
-        <td><%= vacansy.area %></td>
-        <td><%= vacansy.branded_description %></td>
+        <td><%= vacansy.area.name %></td>
+        <td><%= vacansy.description.html_safe %></td>
         <td><%= vacansy.alternate_url %></td>
         <td><%= vacansy.name %></td>
         <td><%= vacansy.archived %></td>

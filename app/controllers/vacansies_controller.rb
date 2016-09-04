@@ -4,7 +4,9 @@ class VacansiesController < ApplicationController
   # GET /vacansies
   # GET /vacansies.json
   def index
-    @vacansies = Vacansy.all
+    #весь поиск по городу и по городам если params[:area_id] массив
+    @vacansies = params[:area_id] ? Vacansy.where(area_id: params[:area_id]): Vacansy.all
+    @vacansies.includes! :area
   end
 
   # GET /vacansies/1
