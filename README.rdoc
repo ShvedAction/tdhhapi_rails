@@ -1,28 +1,19 @@
-== README
+# Тестовое задание
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Данный проект демонстрирует выполнение тестового задания на Ruby On Rails
 
-Things you may want to cover:
+## Задача:
 
-* Ruby version
+Получить список вакансий с сайта http://hh.ru/ сохранив их в базу. Организовать поиск вакансий по городам на основе своей базы данных.
 
-* System dependencies
+## Технические требования:
 
-* Configuration
+Парсинг должен быть организован циклически и вести учет новых и старых вакансий. Для тестового задания достаточно 50000 вакансий.
 
-* Database creation
+## Описание решения:
 
-* Database initialization
+Созданы две модели [Area](https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/area.rb) и [Vacansy](https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/vacancy.rb) ([Миграции](https://github.com/ShvedAction/tdhhapi_rails/tree/master/db/migrate)). Создан фасад для взаимодействия с HH API [HHAPIFacad](https://github.com/ShvedAction/tdhhapi_rails/blob/master/app/models/hhapi_facad.rb). Для потенциального подмена моком в возможных юнит тестах.
 
-* How to run the test suite
+Массовый импорт осуществляется запуском [rake db:seed](https://github.com/ShvedAction/tdhhapi_rails/blob/master/db/seeds.rb). Импортируются Российские города, и из каждого города импортируется не более 4 страниц вакансий.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Через интерфейс можно импортировать по одной вакансии указав её id.
