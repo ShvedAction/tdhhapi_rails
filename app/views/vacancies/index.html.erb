@@ -1,11 +1,13 @@
-
-
+<% content_for :head_field do %>
+    <h1>Список вакансий</h1>
+<% end %>
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">Фильтр по городам <%= link_to 'Импортировать вакансию', new_vacancy_path, class: "btn btn-xs btn-primary", style: "float:right;" %></div>
   <div class="panel-body">
     <p id="notice"><%= notice %></p>
+    <p>Можно выбрать несколько городов</p>
     <%= form_tag(:vacancies, method: :get) do  %>
       <%= select_tag "area_id", options_from_collection_for_select(Area.all, :id, :name, params[:area_id]),multiple: true  %>
         <br/><br/>
@@ -25,14 +27,14 @@
   </thead>
 
   <tbody>
-    <% @vacancies.each do |vacansy| %>
+    <% @vacancies.each do |vacancy| %>
       <tr>
-        <td><%= vacansy.area.name %></td>
-        <td><%= link_to vacansy.name, vacansy.alternate_url %></td>
-        <td><%= vacansy.published_at.localtime.strftime("%d.%m.%Y")  %></td>
-        <td><%= link_to 'Show', vacansy %></td>
-        <td><%= link_to 'Edit', edit_vacancy_path(vacansy) %></td>
-        <td><%= link_to 'Destroy', vacansy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= vacancy.area.name %></td>
+        <td><%= link_to vacancy.name, vacancy.alternate_url %></td>
+        <td><%= vacancy.published_at.localtime.strftime("%d.%m.%Y")  %></td>
+        <td><%= link_to 'Detail', vacancy %></td>
+        <td><%= link_to 'Edit', edit_vacancy_path(vacancy) %></td>
+        <td><%= link_to 'Destroy', vacancy, method: :delete, data: {confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

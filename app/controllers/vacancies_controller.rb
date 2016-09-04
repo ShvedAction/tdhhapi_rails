@@ -22,7 +22,7 @@ class VacanciesController < ApplicationController
 
   # GET /vacancies/new
   def new
-    @vacansy = Vacancy.new
+    @vacancy = Vacancy.new
   end
 
   # GET /vacancies/1/edit
