@@ -24,7 +24,11 @@ postgresql: &postgresql
   min_messages: ERROR
   reconnect: false
 
-defaults: &defaults
+sqlite: &sqlite
+  adapter: sqlite3
+  database: db/development.sqlite3
+
+default: &default
   pool: 5
   timeout: 5000
   encoding: utf8
@@ -32,7 +36,6 @@ defaults: &defaults
 
 development:
   <<: *default
-  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
