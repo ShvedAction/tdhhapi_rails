@@ -42,12 +42,12 @@ gem 'bootstrap-sass', '~> 3.3.6'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'mysql2'
   gem 'thor'
 end
 
+gem 'mysql2'
 group :production, :mysql do
-  gem 'mysql2'
+
 end
 
 group :production, :postgresql do
