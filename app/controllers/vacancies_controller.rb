@@ -9,7 +9,7 @@ class VacanciesController < ApplicationController
     @offset_vacancy = params[:offset_vacancy].to_i
     @limit = 10
     #весь поиск по городу и по городам если params[:area_id] массив
-    @vacancies = params[:area_id] ? Vacancy.where(area_id: params[:area_id]): Vacancy.all
+    @vacancies = params[:area_id] ? Vacancy.byAreaId(params[:area_id]): Vacancy.all
     @count_vacancy = @vacancies.count
     @vacancies.limit!(@limit).offset!(@offset_vacancy)
     @vacancies.includes! :area

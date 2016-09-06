@@ -29,7 +29,7 @@
   <tbody>
     <% @vacancies.each do |vacancy| %>
       <tr>
-        <td><%= vacancy.area.name %></td>
+        <td><%= link_to vacancy.area.name, vacancies_path(area_id: vacancy.area.id) %></td>
         <td><%= link_to vacancy.name, vacancy.alternate_url %></td>
         <td><%= vacancy.published_at.localtime.strftime("%d.%m.%Y")  %></td>
         <td><%= link_to 'Detail', vacancy %></td>

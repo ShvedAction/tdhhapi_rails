@@ -5,6 +5,13 @@ class Vacancy < ActiveRecord::Base
     Vacancy.create HHAPIFacad.get_vacancy(id) unless Vacancy.exists? id: id
   end
 
+  def self.byAreaId id
+    # получение всех id из дерево локации
+    area = Area.find id
+    ids = area.kind_of?(Array) ? area.map{|a| a.get_child_ids}.flatten : area.get_child_ids
+    includes(:area).where area_id: ids
+  end
+
   @@permit_build_key = ["description", "alternate_url", "name", "id", "archived", "area_id", "published_at", "type_name"]
 
   def initialize attributes = nil, options = {}

@@ -19,6 +19,11 @@ class Area < ActiveRecord::Base
     end
   end
 
+  #проход по дочерним веткам
+  def get_child_ids
+    [id] + areas.map {|a| a.get_child_ids}.flatten
+  end
+
   def import_all_vacancies page_limit: false
     first_page = HHAPIFacad.get_vacancy_by_area id
     # быстрый способ но без description вакансии
