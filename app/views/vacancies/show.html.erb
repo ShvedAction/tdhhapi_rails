@@ -7,7 +7,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @vacancy.description.html_safe %>
+  <%= @vacancy.description.html_safe if @vacancy.description %>
 </p>
 
 <p>
